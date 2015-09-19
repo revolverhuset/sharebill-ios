@@ -12,7 +12,7 @@ import SwiftyJSON
 import SwiftLoader
 import DateTools
 
-class TransactionTableViewController: UITableViewController {
+class TransactionListTableViewController: UITableViewController {
   private var transactions:[JSON]? {
     didSet {
       self.tableView.reloadData()

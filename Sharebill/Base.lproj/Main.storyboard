@@ -7,7 +7,7 @@
         <!--Transactions-->
         <scene sceneID="9ST-AZ-Q9R">
             <objects>
-                <tableViewController id="J05-1u-UbU" customClass="TransactionTableViewController" customModule="Sharebill" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="J05-1u-UbU" customClass="TransactionListTableViewController" customModule="Sharebill" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zhO-oU-lRD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="EYr-nH-IBF" kind="show" identifier="showTransaction" id="1SJ-Q2-MTX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -43,7 +46,33 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wd6-jA-oMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="-465"/>
+            <point key="canvasLocation" x="1097" y="-549"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="h9u-yH-2Pf">
+            <objects>
+                <tableViewController id="EYr-nH-IBF" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nbA-5G-COs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MyB-if-CM4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MyB-if-CM4" id="bRe-o6-AYq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EYr-nH-IBF" id="Z1Y-Ci-Q78"/>
+                            <outlet property="delegate" destination="EYr-nH-IBF" id="FUb-Qy-UYM"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a8-oI-fdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1979" y="-662"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="aYt-Km-nvw">
