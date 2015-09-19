@@ -9,21 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-func parseRational(rational:String) -> Double {
-  let nsrational = rational as NSString
-  let expr = NSRegularExpression(pattern: "(\\d+)\\s?(\\d+)?/?(\\d+)?", options: nil, error: nil)!
-  let results = expr.matchesInString(rational, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(rational))) as! [NSTextCheckingResult]
-  assert(results.count > 0, "Couldn't parse rational number: '" + rational + "'")
-  let matches = results[0];
-  if matches.rangeAtIndex(3).length == 0 {
-    return (rational as NSString).doubleValue
-  } else {
-    let base = (nsrational.substringWithRange(matches.rangeAtIndex(1)) as NSString).doubleValue
-    let numerator = (nsrational.substringWithRange(matches.rangeAtIndex(2)) as NSString).doubleValue
-    let denominator = (nsrational.substringWithRange(matches.rangeAtIndex(3)) as NSString).doubleValue
-    return base + numerator/denominator
-  } 
-}
 
 class TransactionTableViewController: UITableViewController {
   var transaction:JSON! {
