@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B32DCC69F81E6A6DA215D05 /* Pods_Sharebill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC481F291BAD90B30011C2F0 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC481F281BAD90B30011C2F0 /* TransactionTableViewController.swift */; };
 		CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */; };
 		CC6A85991BAD73B3002CBA3E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85981BAD73B3002CBA3E /* FirstViewController.swift */; };
 		CC6A859B1BAD73B3002CBA3E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A859A1BAD73B3002CBA3E /* SecondViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharebill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC481F281BAD90B30011C2F0 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
 		CC6A85911BAD73B3002CBA3E /* Sharebill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharebill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6A85951BAD73B3002CBA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				CC6A859F1BAD73B4002CBA3E /* Images.xcassets */,
 				CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */,
 				CC6A85941BAD73B3002CBA3E /* Supporting Files */,
+				CC481F281BAD90B30011C2F0 /* TransactionTableViewController.swift */,
 			);
 			path = Sharebill;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				CC9C40011BAD828E007C6B87 /* Sharebill.swift in Sources */,
 				CC9C3FFF1BAD7BFC007C6B87 /* TransactionListTableViewController.swift in Sources */,
+				CC481F291BAD90B30011C2F0 /* TransactionTableViewController.swift in Sources */,
 				CC6A859B1BAD73B3002CBA3E /* SecondViewController.swift in Sources */,
 				CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */,
 				CC6A85991BAD73B3002CBA3E /* FirstViewController.swift in Sources */,

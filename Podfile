@@ -7,5 +7,6 @@ target 'Sharebill' do
   pod 'SwiftyJSON', '2.2'
   pod 'SwiftLoader', '~> 0.2'
   pod 'DateTools', '~> 1.7'
+  pod 'Regex', '~> 0.2'
 end
 

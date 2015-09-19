@@ -29,7 +29,7 @@ class TransactionListTableViewController: UITableViewController {
       SwiftLoader.show(animated:true)
       return Sharebill.inst.get("recent")
     }.then { recents, response in
-      self.transactions = recents["rows"].arrayValue.map { $0["value"]["meta"] }
+      self.transactions = recents["rows"].arrayValue.map { $0["value"] }
     }.finally {
       SwiftLoader.hide()
     }
@@ -47,8 +47,8 @@ class TransactionListTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier("transactionCell", forIndexPath: indexPath) as! UITableViewCell
 
     let transaction = transactions?[indexPath.row]
-    cell.textLabel?.text = transaction?["description"].string ?? "Untitled Transaction"
-    if let dateString = transaction?["timestamp"].string {
+    cell.textLabel?.text = transaction?["meta"]["description"].string ?? "Untitled Transaction"
+    if let dateString = transaction?["meta"]["timestamp"].string {
       cell.detailTextLabel?.text = dateFormatter.dateFromString(dateString)?.timeAgoSinceNow()
     }
 
