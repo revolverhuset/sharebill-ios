@@ -14,19 +14,8 @@
 		CC6A859E1BAD73B4002CBA3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6A859C1BAD73B4002CBA3E /* Main.storyboard */; };
 		CC6A85A01BAD73B4002CBA3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6A859F1BAD73B4002CBA3E /* Images.xcassets */; };
 		CC6A85A31BAD73B4002CBA3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */; };
-		CC6A85AF1BAD73B4002CBA3E /* SharebillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85AE1BAD73B4002CBA3E /* SharebillTests.swift */; };
 		CC9C3FFF1BAD7BFC007C6B87 /* TranscationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CC6A85A91BAD73B4002CBA3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC6A85891BAD73B3002CBA3E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CC6A85901BAD73B3002CBA3E;
-			remoteInfo = Sharebill;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharebill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +27,6 @@
 		CC6A859D1BAD73B4002CBA3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC6A859F1BAD73B4002CBA3E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC6A85A21BAD73B4002CBA3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CC6A85A81BAD73B4002CBA3E /* SharebillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharebillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6A85AD1BAD73B4002CBA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6A85AE1BAD73B4002CBA3E /* SharebillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebillTests.swift; sourceTree = "<group>"; };
 		CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscationTableViewController.swift; sourceTree = "<group>"; };
@@ -52,13 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B32DCC69F81E6A6DA215D05 /* Pods_Sharebill.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC6A85A51BAD73B4002CBA3E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				CC6A85911BAD73B3002CBA3E /* Sharebill.app */,
-				CC6A85A81BAD73B4002CBA3E /* SharebillTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,24 +145,6 @@
 			productReference = CC6A85911BAD73B3002CBA3E /* Sharebill.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CC6A85A71BAD73B4002CBA3E /* SharebillTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CC6A85B51BAD73B4002CBA3E /* Build configuration list for PBXNativeTarget "SharebillTests" */;
-			buildPhases = (
-				CC6A85A41BAD73B4002CBA3E /* Sources */,
-				CC6A85A51BAD73B4002CBA3E /* Frameworks */,
-				CC6A85A61BAD73B4002CBA3E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC6A85AA1BAD73B4002CBA3E /* PBXTargetDependency */,
-			);
-			name = SharebillTests;
-			productName = SharebillTests;
-			productReference = CC6A85A81BAD73B4002CBA3E /* SharebillTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,10 +156,6 @@
 				TargetAttributes = {
 					CC6A85901BAD73B3002CBA3E = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					CC6A85A71BAD73B4002CBA3E = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = CC6A85901BAD73B3002CBA3E;
 					};
 				};
 			};
@@ -215,7 +173,6 @@
 			projectRoot = "";
 			targets = (
 				CC6A85901BAD73B3002CBA3E /* Sharebill */,
-				CC6A85A71BAD73B4002CBA3E /* SharebillTests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,13 +185,6 @@
 				CC6A859E1BAD73B4002CBA3E /* Main.storyboard in Resources */,
 				CC6A85A31BAD73B4002CBA3E /* LaunchScreen.xib in Resources */,
 				CC6A85A01BAD73B4002CBA3E /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC6A85A61BAD73B4002CBA3E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,23 +250,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC6A85A41BAD73B4002CBA3E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC6A85AF1BAD73B4002CBA3E /* SharebillTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CC6A85AA1BAD73B4002CBA3E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CC6A85901BAD73B3002CBA3E /* Sharebill */;
-			targetProxy = CC6A85A91BAD73B4002CBA3E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CC6A859C1BAD73B4002CBA3E /* Main.storyboard */ = {
@@ -441,40 +375,6 @@
 			};
 			name = Release;
 		};
-		CC6A85B61BAD73B4002CBA3E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SharebillTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharebill.app/Sharebill";
-			};
-			name = Debug;
-		};
-		CC6A85B71BAD73B4002CBA3E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SharebillTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharebill.app/Sharebill";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -492,15 +392,6 @@
 			buildConfigurations = (
 				CC6A85B31BAD73B4002CBA3E /* Debug */,
 				CC6A85B41BAD73B4002CBA3E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CC6A85B51BAD73B4002CBA3E /* Build configuration list for PBXNativeTarget "SharebillTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC6A85B61BAD73B4002CBA3E /* Debug */,
-				CC6A85B71BAD73B4002CBA3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
