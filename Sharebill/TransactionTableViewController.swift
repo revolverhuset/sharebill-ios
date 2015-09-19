@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import SwiftyJSON
+import SwiftLoader
 
 class TransactionTableViewController: UITableViewController {
   private var transactions:[JSON]? {
@@ -19,8 +20,13 @@ class TransactionTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    Sharebill.inst.get("recent").then { recents, response -> Void in
+    firstly { () -> Promise<(JSON, NSURLResponse)> in
+      SwiftLoader.show(animated:true)
+      return Sharebill.inst.get("recent")
+    }.then { recents, response in
       self.transactions = recents["rows"].arrayValue.map { $0["value"]["meta"] }
+    }.finally {
+      SwiftLoader.hide()
     }
   }
   
