@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B32DCC69F81E6A6DA215D05 /* Pods_Sharebill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */; };
 		CC6A85991BAD73B3002CBA3E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85981BAD73B3002CBA3E /* FirstViewController.swift */; };
 		CC6A859B1BAD73B3002CBA3E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A859A1BAD73B3002CBA3E /* SecondViewController.swift */; };
@@ -14,6 +15,7 @@
 		CC6A85A01BAD73B4002CBA3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6A859F1BAD73B4002CBA3E /* Images.xcassets */; };
 		CC6A85A31BAD73B4002CBA3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */; };
 		CC6A85AF1BAD73B4002CBA3E /* SharebillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6A85AE1BAD73B4002CBA3E /* SharebillTests.swift */; };
+		CC9C3FFF1BAD7BFC007C6B87 /* TranscationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharebill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6A85911BAD73B3002CBA3E /* Sharebill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharebill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6A85951BAD73B3002CBA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +41,9 @@
 		CC6A85A81BAD73B4002CBA3E /* SharebillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharebillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6A85AD1BAD73B4002CBA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6A85AE1BAD73B4002CBA3E /* SharebillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebillTests.swift; sourceTree = "<group>"; };
+		CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscationTableViewController.swift; sourceTree = "<group>"; };
+		CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.debug.xcconfig"; sourceTree = "<group>"; };
+		F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B32DCC69F81E6A6DA215D05 /* Pods_Sharebill.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		422B42D268843A3D7135FEF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AA8FF99427C51AEFFC7E019 /* Pods_Sharebill.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC6A85881BAD73B3002CBA3E = {
 			isa = PBXGroup;
 			children = (
 				CC6A85931BAD73B3002CBA3E /* Sharebill */,
 				CC6A85AB1BAD73B4002CBA3E /* SharebillTests */,
 				CC6A85921BAD73B3002CBA3E /* Products */,
+				DBB643841F0369810DFE7812 /* Pods */,
+				422B42D268843A3D7135FEF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +100,7 @@
 				CC6A85981BAD73B3002CBA3E /* FirstViewController.swift */,
 				CC6A859A1BAD73B3002CBA3E /* SecondViewController.swift */,
 				CC6A859C1BAD73B4002CBA3E /* Main.storyboard */,
+				CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */,
 				CC6A859F1BAD73B4002CBA3E /* Images.xcassets */,
 				CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */,
 				CC6A85941BAD73B3002CBA3E /* Supporting Files */,
@@ -115,6 +133,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DBB643841F0369810DFE7812 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */,
+				F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC6A85B21BAD73B4002CBA3E /* Build configuration list for PBXNativeTarget "Sharebill" */;
 			buildPhases = (
+				0A2E554D306DE6FF00AE41B9 /* Check Pods Manifest.lock */,
 				CC6A858D1BAD73B3002CBA3E /* Sources */,
 				CC6A858E1BAD73B3002CBA3E /* Frameworks */,
 				CC6A858F1BAD73B3002CBA3E /* Resources */,
+				9BAB9FBB8BC41999905A8954 /* Embed Pods Frameworks */,
+				CFA77054683284B78F772E0C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,11 +240,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A2E554D306DE6FF00AE41B9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9BAB9FBB8BC41999905A8954 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFA77054683284B78F772E0C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC6A858D1BAD73B3002CBA3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9C3FFF1BAD7BFC007C6B87 /* TranscationTableViewController.swift in Sources */,
 				CC6A859B1BAD73B3002CBA3E /* SecondViewController.swift in Sources */,
 				CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */,
 				CC6A85991BAD73B3002CBA3E /* FirstViewController.swift in Sources */,
@@ -342,6 +421,7 @@
 		};
 		CC6A85B31BAD73B4002CBA3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sharebill/Info.plist;
@@ -352,6 +432,7 @@
 		};
 		CC6A85B41BAD73B4002CBA3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sharebill/Info.plist;
@@ -413,6 +494,7 @@
 				CC6A85B41BAD73B4002CBA3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC6A85B51BAD73B4002CBA3E /* Build configuration list for PBXNativeTarget "SharebillTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +503,7 @@
 				CC6A85B71BAD73B4002CBA3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
