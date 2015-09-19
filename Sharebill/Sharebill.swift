@@ -12,10 +12,10 @@ import PromiseKit
 import OMGHTTPURLRQ
 
 class Sharebill {
-  private static let InstanceURL = "http://sharebill.gpgc.org"
+  private static let InstanceURL = "http://sharebill.qpgc.org"
   
   // todo - make these configured outside source code somewhere.
-  static let inst = Sharebill(InstanceURL)
+  static let inst = Sharebill(instance: InstanceURL)
   
   let instance: String
   
@@ -24,7 +24,7 @@ class Sharebill {
   }
   
   func endpoint(path:String) -> String {
-    return "\(self.instance)\(path)"
+    return "\(self.instance)/\(path)"
   }
   
   private func parseResult(request:Promise<(NSData, NSURLResponse)>) -> Promise<(JSON, NSURLResponse)> {
