@@ -15,6 +15,7 @@
 		CC6A85A01BAD73B4002CBA3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6A859F1BAD73B4002CBA3E /* Images.xcassets */; };
 		CC6A85A31BAD73B4002CBA3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */; };
 		CC9C3FFF1BAD7BFC007C6B87 /* TranscationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */; };
+		CC9C40011BAD828E007C6B87 /* Sharebill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9C40001BAD828E007C6B87 /* Sharebill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CC6A85AD1BAD73B4002CBA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6A85AE1BAD73B4002CBA3E /* SharebillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebillTests.swift; sourceTree = "<group>"; };
 		CC9C3FFE1BAD7BFC007C6B87 /* TranscationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscationTableViewController.swift; sourceTree = "<group>"; };
+		CC9C40001BAD828E007C6B87 /* Sharebill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sharebill.swift; path = Sharebill/Sharebill.swift; sourceTree = SOURCE_ROOT; };
 		CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.debug.xcconfig"; sourceTree = "<group>"; };
 		F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 		CC6A85931BAD73B3002CBA3E /* Sharebill */ = {
 			isa = PBXGroup;
 			children = (
+				CC9C40001BAD828E007C6B87 /* Sharebill.swift */,
 				CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */,
 				CC6A85981BAD73B3002CBA3E /* FirstViewController.swift */,
 				CC6A859A1BAD73B3002CBA3E /* SecondViewController.swift */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC9C40011BAD828E007C6B87 /* Sharebill.swift in Sources */,
 				CC9C3FFF1BAD7BFC007C6B87 /* TranscationTableViewController.swift in Sources */,
 				CC6A859B1BAD73B3002CBA3E /* SecondViewController.swift in Sources */,
 				CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */,
