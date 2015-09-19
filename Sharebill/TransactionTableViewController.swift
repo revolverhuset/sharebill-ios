@@ -8,29 +8,31 @@
 
 import UIKit
 import SwiftyJSON
-import Regex
 
 func parseRational(rational:String) -> Double {
-  let parseResult = rational.grep("(\\d+)\\s?(\\d+)?/?(\\d+)?")
-  if parseResult.captures.count == 1 {
+  let nsrational = rational as NSString
+  let expr = NSRegularExpression(pattern: "(\\d+)\\s?(\\d+)?/?(\\d+)?", options: nil, error: nil)!
+  let results = expr.matchesInString(rational, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, count(rational))) as! [NSTextCheckingResult]
+  assert(results.count > 0, "Couldn't parse rational number: '" + rational + "'")
+  let matches = results[0];
+  if matches.rangeAtIndex(3).length == 0 {
     return (rational as NSString).doubleValue
-  } else if parseResult.captures.count == 3 {
-    let base = (parseResult.captures[0] as NSString).doubleValue
-    let numerator = (parseResult.captures[1] as NSString).doubleValue
-    let denominator = (parseResult.captures[2] as NSString).doubleValue
-    return base + numerator/denominator
   } else {
-    assert(false, "Couldn't parse rational number: '" + rational + "'")
-  }
+    let base = (nsrational.substringWithRange(matches.rangeAtIndex(1)) as NSString).doubleValue
+    let numerator = (nsrational.substringWithRange(matches.rangeAtIndex(2)) as NSString).doubleValue
+    let denominator = (nsrational.substringWithRange(matches.rangeAtIndex(3)) as NSString).doubleValue
+    return base + numerator/denominator
+  } 
 }
 
 class TransactionTableViewController: UITableViewController {
-  private var transaction:JSON! {
+  var transaction:JSON! {
     didSet {
       var debitsDict = transaction["transaction"]["debets"].dictionaryValue
       var creditsDict = transaction["transaction"]["credits"].dictionaryValue
       debits = debitsDict.keys.map {($0, parseRational(debitsDict[$0]!.stringValue))}.array
       credits = creditsDict.keys.map {($0, parseRational(creditsDict[$0]!.stringValue))}.array
+      self.title = transaction["meta"]["description"].string
       self.tableView.reloadData()
     }
   }
@@ -39,7 +41,7 @@ class TransactionTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = transaction["meta"]["title"].string
+    self.title = transaction["meta"]["description"].string
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -64,5 +66,13 @@ class TransactionTableViewController: UITableViewController {
     cell.detailTextLabel?.text = String(format: "%.2f", amount)
     
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if section == 0 {
+      return "Debits"
+    } else {
+      return "Credits"
+    }
   }
 }
