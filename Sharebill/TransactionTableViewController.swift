@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import SwiftyJSON
 import SwiftLoader
+import DateTools
 
 class TransactionTableViewController: UITableViewController {
   private var transactions:[JSON]? {
@@ -17,9 +18,13 @@ class TransactionTableViewController: UITableViewController {
       self.tableView.reloadData()
     }
   }
+  private let dateFormatter:NSDateFormatter = NSDateFormatter()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
+    
     firstly { () -> Promise<(JSON, NSURLResponse)> in
       SwiftLoader.show(animated:true)
       return Sharebill.inst.get("recent")
@@ -38,11 +43,14 @@ class TransactionTableViewController: UITableViewController {
     return transactions?.count ?? 0
   }
 
-  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("transactionCell", forIndexPath: indexPath) as! UITableViewCell
 
-    cell.textLabel?.text = transactions?[indexPath.row]["value"]["meta"]["description"].string ?? "Untitled Transaction"
+    let transaction = transactions?[indexPath.row]
+    cell.textLabel?.text = transaction?["description"].string ?? "Untitled Transaction"
+    if let dateString = transaction?["timestamp"].string {
+      cell.detailTextLabel?.text = dateFormatter.dateFromString(dateString)?.timeAgoSinceNow()
+    }
 
     return cell
   }

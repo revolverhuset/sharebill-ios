@@ -6,5 +6,6 @@ target 'Sharebill' do
   pod 'PromiseKit', '~> 2.2'
   pod 'SwiftyJSON', '2.2'
   pod 'SwiftLoader', '~> 0.2'
+  pod 'DateTools', '~> 1.7'
 end
 
