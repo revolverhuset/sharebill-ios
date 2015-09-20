@@ -321,7 +321,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" tag="43" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z29-eG-rC2">
                                                     <rect key="frame" x="405" y="7" width="187" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="next"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     <connections>
                                                         <action selector="didRequestFocusInNextRow:" destination="FqL-fx-vJ8" eventType="editingDidEndOnExit" id="lT8-fB-9kC"/>
                                                         <action selector="didUpdateValue:" destination="FqL-fx-vJ8" eventType="editingChanged" id="Ht6-Zt-A03"/>
