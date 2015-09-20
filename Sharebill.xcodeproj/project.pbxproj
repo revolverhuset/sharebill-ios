@@ -19,6 +19,7 @@
 		CCAB17911BADB98200631F5C /* parseRational.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17901BADB98200631F5C /* parseRational.swift */; };
 		CCAB17931BAE0C7E00631F5C /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */; };
 		CCAB17971BAEE5FB00631F5C /* frac.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17961BAEE5FB00631F5C /* frac.m */; };
+		CCAB17991BAF00E700631F5C /* SBSPLASH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCAB17981BAF00E700631F5C /* SBSPLASH.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CCAB17941BAEE5BD00631F5C /* frac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = frac.h; sourceTree = "<group>"; };
 		CCAB17951BAEE5FA00631F5C /* Sharebill-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sharebill-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		CCAB17961BAEE5FB00631F5C /* frac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = frac.m; sourceTree = "<group>"; };
+		CCAB17981BAF00E700631F5C /* SBSPLASH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SBSPLASH.jpg; sourceTree = "<group>"; };
 		CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.debug.xcconfig"; sourceTree = "<group>"; };
 		F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				CC6A85961BAD73B3002CBA3E /* AppDelegate.swift */,
 				CC6A859C1BAD73B4002CBA3E /* Main.storyboard */,
 				CC9C3FFE1BAD7BFC007C6B87 /* TransactionListTableViewController.swift */,
+				CCAB17981BAF00E700631F5C /* SBSPLASH.jpg */,
 				CC6A859F1BAD73B4002CBA3E /* Images.xcassets */,
 				CC6A85A11BAD73B4002CBA3E /* LaunchScreen.xib */,
 				CC6A85941BAD73B3002CBA3E /* Supporting Files */,
@@ -201,6 +204,7 @@
 				CC6A859E1BAD73B4002CBA3E /* Main.storyboard in Resources */,
 				CC6A85A31BAD73B4002CBA3E /* LaunchScreen.xib in Resources */,
 				CC6A85A01BAD73B4002CBA3E /* Images.xcassets in Resources */,
+				CCAB17991BAF00E700631F5C /* SBSPLASH.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
