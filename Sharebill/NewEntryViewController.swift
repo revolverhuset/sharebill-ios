@@ -16,6 +16,17 @@ struct SharebillEntry {
 class NewEntryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EntryInputTableViewCellDelegate {
   @IBOutlet weak var tableView:UITableView!
   
+  var debitsSectionHeader:UITableViewHeaderFooterView? {
+    get {
+      return tableView.headerViewForSection(0)
+    }
+  }
+  var creditsSectionHeader:UITableViewHeaderFooterView? {
+    get {
+      return tableView.headerViewForSection(1)
+    }
+  }
+  
   var entry:SharebillEntry = SharebillEntry(credits: [], debits: [])
   
   override func viewDidLoad() {
@@ -26,14 +37,6 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 2
-  }
-  
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if section == 0 {
-      return "Debits"
-    } else {
-      return "Credits"
-    }
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +69,26 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     return cell
   }
   
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if section == 0 {
+      let debitsTotal = entry.debits.reduce(0.0) { $0 + parseRational($1.1) }
+      return String(format: "Debits (%.02f)", debitsTotal)
+    } else {
+      let creditsTotal = entry.credits.reduce(0.0) { $0 + parseRational($1.1) }
+      return String(format: "Credits (%.02f)", creditsTotal)
+    }
+  }
+  
+  /*func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    if section == 0 {
+      debitsSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("debitsSectionHeader") as! UITableViewCell
+      return debitsSectionHeader
+    } else {
+      creditsSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("creditsSectionHeader") as! UITableViewCell
+      return creditsSectionHeader
+    }
+  }*/
+  
   func insertNewRowInSection(section:Int) {
     let indexPath = NSIndexPath(forRow: [entry.debits, entry.credits][section].count, inSection: section)
     tableView.beginUpdates()
@@ -79,6 +102,11 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     } else {
       entry.credits = array
     }
+  }
+  
+  private func recalculateTotals() {
+    debitsSectionHeader?.textLabel.text = tableView(tableView, titleForHeaderInSection:0)
+    creditsSectionHeader?.textLabel.text = tableView(tableView, titleForHeaderInSection:1)
   }
   
   func cell(cell: EntryInputTableViewCell, didUpdateAccount newAccount: String) {
@@ -106,6 +134,7 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
         targetArray[indexPath.row].1 = newValue
         updateEntriesWithArray(targetArray, forIndex: indexPath.section)
       }
+      recalculateTotals()
     }
   }
   

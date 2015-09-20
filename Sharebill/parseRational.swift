@@ -9,6 +9,9 @@
 import Foundation
 
 func parseRational(rational:String) -> Double {
+  if rational == "" {
+    return 0
+  }
   let fraction = split(rational) {$0 == "/"}
   let base = split(fraction[0]) {$0 == " "}
   if fraction.count == 1 {
