@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="231" y="271"/>
         </scene>
-        <!--Item-->
+        <!--New Entry-->
         <scene sceneID="izl-08-POb">
             <objects>
-                <viewController id="8BR-KU-NAk" sceneMemberID="viewController">
+                <viewController id="8BR-KU-NAk" customClass="NewEntryViewController" customModule="Sharebill" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tlm-aD-Vbe"/>
                         <viewControllerLayoutGuide type="bottom" id="KnK-bv-EZN"/>
@@ -252,21 +252,29 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FqL-fx-vJ8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryRow" id="FqL-fx-vJ8" customClass="EntryInputTableViewCell" customModule="Sharebill" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FqL-fx-vJ8" id="Tr0-b4-hGB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTV-NH-8JK">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="42" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTV-NH-8JK">
                                                     <rect key="frame" x="8" y="7" width="367" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didRequestFocusInValue:" destination="FqL-fx-vJ8" eventType="editingDidEndOnExit" id="WBr-hH-VCC"/>
+                                                        <action selector="didUpdateAccount:" destination="FqL-fx-vJ8" eventType="editingChanged" id="aO6-iz-qGs"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z29-eG-rC2">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="43" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z29-eG-rC2">
                                                     <rect key="frame" x="405" y="7" width="187" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="next"/>
+                                                    <connections>
+                                                        <action selector="didRequestFocusInNextRow:" destination="FqL-fx-vJ8" eventType="editingDidEndOnExit" id="lT8-fB-9kC"/>
+                                                        <action selector="didUpdateValue:" destination="FqL-fx-vJ8" eventType="editingChanged" id="Ht6-Zt-A03"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -280,8 +288,60 @@
                                                 <constraint firstItem="Z29-eG-rC2" firstAttribute="leading" secondItem="Tr0-b4-hGB" secondAttribute="centerX" multiplier="1.35" id="rW5-xg-Mgp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="account" destination="qTV-NH-8JK" id="dRj-G7-MUV"/>
+                                            <outlet property="value" destination="Z29-eG-rC2" id="4jE-I0-CPS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="debitSectionHeader" textLabel="2Yo-Sd-il0" detailTextLabel="scm-gJ-HFG" rowHeight="25" style="IBUITableViewCellStyleValue1" id="8MV-DV-Ian">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8MV-DV-Ian" id="5KP-0f-BFW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Debits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Yo-Sd-il0">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="scm-gJ-HFG">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.86403913190000003" blue="0.88513876709999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="creditSectionHeader" textLabel="9s3-OF-uwa" detailTextLabel="2T0-wJ-qXR" rowHeight="25" style="IBUITableViewCellStyleValue1" id="i0D-qV-N7W">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i0D-qV-N7W" id="RAa-Zq-8io">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Credits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9s3-OF-uwa">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2T0-wJ-qXR">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.81836714200000005" green="1" blue="0.8087157264" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8BR-KU-NAk" id="22q-1I-KQg"/>
+                                    <outlet property="delegate" destination="8BR-KU-NAk" id="VTY-fl-IbS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -292,7 +352,10 @@
                             <constraint firstAttribute="bottom" secondItem="mjp-32-GMX" secondAttribute="bottom" constant="49" id="Tpp-DW-Pee"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Jrh-C3-fxG"/>
+                    <tabBarItem key="tabBarItem" title="New Entry" id="Jrh-C3-fxG"/>
+                    <connections>
+                        <outlet property="tableView" destination="mjp-32-GMX" id="wcn-gc-5Eq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1h-XG-vZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

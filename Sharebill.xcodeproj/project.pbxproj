@@ -17,6 +17,7 @@
 		CC9C40011BAD828E007C6B87 /* Sharebill.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9C40001BAD828E007C6B87 /* Sharebill.swift */; };
 		CCAB178F1BADB83B00631F5C /* BalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */; };
 		CCAB17911BADB98200631F5C /* parseRational.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17901BADB98200631F5C /* parseRational.swift */; };
+		CCAB17931BAE0C7E00631F5C /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CC9C40001BAD828E007C6B87 /* Sharebill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sharebill.swift; path = Sharebill/Sharebill.swift; sourceTree = SOURCE_ROOT; };
 		CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancesTableViewController.swift; sourceTree = "<group>"; };
 		CCAB17901BADB98200631F5C /* parseRational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseRational.swift; sourceTree = "<group>"; };
+		CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.debug.xcconfig"; sourceTree = "<group>"; };
 		F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				CC481F281BAD90B30011C2F0 /* TransactionTableViewController.swift */,
 				CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */,
 				CCAB17901BADB98200631F5C /* parseRational.swift */,
+				CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */,
 			);
 			path = Sharebill;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				CC481F291BAD90B30011C2F0 /* TransactionTableViewController.swift in Sources */,
 				CCAB17911BADB98200631F5C /* parseRational.swift in Sources */,
 				CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */,
+				CCAB17931BAE0C7E00631F5C /* NewEntryViewController.swift in Sources */,
 				CCAB178F1BADB83B00631F5C /* BalancesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
