@@ -92,8 +92,14 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
       return tableView.headerViewForSection(1)
     }
   }
+
   
   var entry:SharebillEntry = SharebillEntry(credits: [], debits: [], entryName: "", _creditsTotal: nil, _debitsTotal: nil)
+  
+  override func awakeFromNib() {
+    self.tabBarItem = UITabBarItem(title: "New Entry", image: UIImage.fontAwesomeIconWithName(.PlusSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(30,30)), tag: 2)
+    super.awakeFromNib()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

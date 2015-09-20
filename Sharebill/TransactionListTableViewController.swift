@@ -11,6 +11,7 @@ import PromiseKit
 import SwiftyJSON
 import SwiftLoader
 import DateTools
+import FontAwesome_swift
 
 class TransactionListTableViewController: UITableViewController {
   private var transactions:[JSON]? {
@@ -24,6 +25,11 @@ class TransactionListTableViewController: UITableViewController {
     super.viewDidLoad()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
     dateFormatter.timeZone = NSTimeZone(name: "UTC")
+  }
+  
+  override func awakeFromNib() {
+    self.tabBarItem = UITabBarItem(title: "Transactions", image: UIImage.fontAwesomeIconWithName(.Book, textColor: UIColor.blackColor(), size: CGSizeMake(30,30)), tag: 1)
+    super.awakeFromNib()
   }
   
   override func viewDidAppear(animated: Bool) {

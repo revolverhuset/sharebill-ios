@@ -24,6 +24,11 @@ class BalancesTableViewController: UIViewController, UITableViewDataSource, UITa
     super.viewDidLoad()
   }
   
+  override func awakeFromNib() {
+    self.tabBarItem = UITabBarItem(title: "Balances", image: UIImage.fontAwesomeIconWithName(.BalanceScale, textColor: UIColor.blackColor(), size: CGSizeMake(30,30)), tag: 0)
+    super.awakeFromNib()
+  }
+  
   override func viewDidAppear(animated: Bool) {
     firstly { () -> Promise<(JSON, NSURLResponse)> in
       SwiftLoader.show(animated:true)

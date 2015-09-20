@@ -8,5 +8,6 @@ target 'Sharebill' do
   pod 'SwiftLoader', '~> 0.2'
   pod 'DateTools', '~> 1.7'
   pod 'Regex', '~> 0.2'
+  pod 'FontAwesome.swift', '~> 0.5'
 end
 
