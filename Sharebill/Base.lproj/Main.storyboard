@@ -248,9 +248,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-32-GMX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-32-GMX">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="OAY-lt-Tgz">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cos-zk-cFR">
+                                            <rect key="frame" x="442" y="8" width="150" height="28"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="c6T-dg-e13"/>
+                                            </constraints>
+                                            <state key="normal" title="Submit">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="submitEntry" destination="8BR-KU-NAk" eventType="touchUpInside" id="XNO-ol-E7r"/>
+                                            </connections>
+                                        </button>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Udu-fx-liu">
+                                            <rect key="frame" x="414" y="12" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="cos-zk-cFR" firstAttribute="top" secondItem="OAY-lt-Tgz" secondAttribute="top" constant="8" id="AuR-ej-0Mh"/>
+                                        <constraint firstAttribute="centerY" secondItem="Udu-fx-liu" secondAttribute="centerY" id="GCi-Vq-155"/>
+                                        <constraint firstAttribute="bottom" secondItem="cos-zk-cFR" secondAttribute="bottom" constant="8" id="ZeX-0m-dNW"/>
+                                        <constraint firstAttribute="trailing" secondItem="cos-zk-cFR" secondAttribute="trailing" constant="8" id="aXd-Ww-AlJ"/>
+                                        <constraint firstItem="cos-zk-cFR" firstAttribute="leading" secondItem="Udu-fx-liu" secondAttribute="trailing" constant="8" id="lLm-RC-x48"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryRow" id="FqL-fx-vJ8" customClass="EntryInputTableViewCell" customModule="Sharebill" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -300,7 +330,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mjp-32-GMX" firstAttribute="leading" secondItem="Txq-Nw-Jbv" secondAttribute="leading" id="4Bx-Tc-PFq"/>
                             <constraint firstItem="mjp-32-GMX" firstAttribute="top" secondItem="Txq-Nw-Jbv" secondAttribute="top" constant="20" id="HTD-kF-SIt"/>
@@ -310,6 +340,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="New Entry" id="Jrh-C3-fxG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Udu-fx-liu" id="cuM-Cg-Yf1"/>
+                        <outlet property="submitButton" destination="cos-zk-cFR" id="uMd-fK-DWN"/>
                         <outlet property="tableView" destination="mjp-32-GMX" id="wcn-gc-5Eq"/>
                     </connections>
                 </viewController>

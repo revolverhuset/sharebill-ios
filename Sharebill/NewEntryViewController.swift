@@ -7,14 +7,45 @@
 //
 
 import UIKit
+import QuartzCore
 
 struct SharebillEntry {
-  var credits:[(String, String)]
-  var debits:[(String, String)]
+  var credits:[(String, String)] {
+    didSet {
+      _creditsTotal = nil
+    }
+  }
+  var debits:[(String, String)] {
+    didSet {
+      _debitsTotal = nil
+    }
+  }
+  private var _creditsTotal:Double? = nil
+  private var _debitsTotal:Double? = nil
+  var creditsTotal:Double {
+    mutating get {
+      if let creditsTotal = _creditsTotal {
+        return creditsTotal
+      }
+      _creditsTotal = credits.reduce(0.0) { $0! + parseRational($1.1) }
+      return _creditsTotal!
+    }
+  }
+  var debitsTotal:Double {
+    mutating get {
+      if let debitsTotal = _debitsTotal {
+        return debitsTotal
+      }
+      _debitsTotal = debits.reduce(0.0) { $0! + parseRational($1.1) }
+      return _debitsTotal!
+    }
+  }
 }
 
 class NewEntryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EntryInputTableViewCellDelegate {
   @IBOutlet weak var tableView:UITableView!
+  @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+  @IBOutlet weak var submitButton:UIButton!
   
   var debitsSectionHeader:UITableViewHeaderFooterView? {
     get {
@@ -27,12 +58,15 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
   }
   
-  var entry:SharebillEntry = SharebillEntry(credits: [], debits: [])
+  var entry:SharebillEntry = SharebillEntry(credits: [], debits: [], _creditsTotal: nil, _debitsTotal: nil)
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
+    submitButton.layer.cornerRadius = 5
+    submitButton.layer.masksToBounds = true
+    submitButton.layer.borderColor = UIColor.redColor().CGColor
+    submitButton.layer.borderWidth = 1
+    submitButton.setTitle("No Values", forState: .Normal)
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -71,23 +105,11 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if section == 0 {
-      let debitsTotal = entry.debits.reduce(0.0) { $0 + parseRational($1.1) }
-      return String(format: "Debits (%.02f)", debitsTotal)
+      return String(format: "DEBITS (%.02f)", entry.debitsTotal)
     } else {
-      let creditsTotal = entry.credits.reduce(0.0) { $0 + parseRational($1.1) }
-      return String(format: "Credits (%.02f)", creditsTotal)
+      return String(format: "CREDITS (%.02f)", entry.creditsTotal)
     }
   }
-  
-  /*func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    if section == 0 {
-      debitsSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("debitsSectionHeader") as! UITableViewCell
-      return debitsSectionHeader
-    } else {
-      creditsSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("creditsSectionHeader") as! UITableViewCell
-      return creditsSectionHeader
-    }
-  }*/
   
   func insertNewRowInSection(section:Int) {
     let indexPath = NSIndexPath(forRow: [entry.debits, entry.credits][section].count, inSection: section)
@@ -104,9 +126,38 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
   }
   
+  @IBAction func submitEntry() {
+    if entry.debits.count == 0 || entry.credits.count == 0 || entry.creditsTotal != entry.debitsTotal || entry.creditsTotal == 0 {
+      return
+    }
+    
+    for var i = 0; i < entry.credits.count; ++i {
+      if entry.credits[i].0 == "" {
+        return
+      }
+    }
+    
+    for var i = 0; i < entry.debits.count; ++i {
+      if entry.debits[i].0 == "" {
+        return
+      }
+    }
+    
+    
+  }
+  
   private func recalculateTotals() {
     debitsSectionHeader?.textLabel.text = tableView(tableView, titleForHeaderInSection:0)
+    debitsSectionHeader?.textLabel.sizeToFit()
     creditsSectionHeader?.textLabel.text = tableView(tableView, titleForHeaderInSection:1)
+    creditsSectionHeader?.textLabel.sizeToFit()
+    if entry.creditsTotal == entry.debitsTotal {
+      submitButton.setTitle("Submit", forState: .Normal)
+      submitButton.layer.borderColor = UIColor.greenColor().CGColor
+    } else {
+      submitButton.setTitle(String(format:"%.02f != %.02f", entry.debitsTotal, entry.creditsTotal), forState: .Normal)
+      submitButton.layer.borderColor = UIColor.redColor().CGColor
+    }
   }
   
   func cell(cell: EntryInputTableViewCell, didUpdateAccount newAccount: String) {
