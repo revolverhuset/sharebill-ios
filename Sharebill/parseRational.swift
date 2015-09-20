@@ -18,8 +18,14 @@ func parseRational(rational:String) -> Double {
     return (rational as NSString).doubleValue
   } else {
     let baseNum = base.count > 1 ? (base[0] as NSString).doubleValue : 0
-    let numerator = (fraction[0] as NSString).doubleValue
+    let numerator = (base[base.count - 1] as NSString).doubleValue
     let denominator = (fraction[1] as NSString).doubleValue
     return baseNum + numerator/denominator
   }
+}
+
+func toRational(num:Double) -> String {
+  let rational = RCRationalNumber(double: num, precision: 2)
+  return String(format: "%d/%d", rational.numerator(), rational.denominator())
+  
 }

@@ -141,8 +141,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="P36-75-XFy" kind="relationship" relationship="viewControllers" id="DoA-qS-pdC"/>
                         <segue destination="00a-dP-XTp" kind="relationship" relationship="viewControllers" id="VXf-xB-6cm"/>
+                        <segue destination="P36-75-XFy" kind="relationship" relationship="viewControllers" id="DoA-qS-pdC"/>
                         <segue destination="8BR-KU-NAk" kind="relationship" relationship="viewControllers" id="7uy-4Z-wKL"/>
                     </connections>
                 </tabBarController>
@@ -251,6 +251,27 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-32-GMX">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="1C3-RX-9td">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entry Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-dc-LqX">
+                                            <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="entryNameDidChange:" destination="8BR-KU-NAk" eventType="editingChanged" id="uIp-5D-kiQ"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="CQf-dc-LqX" secondAttribute="trailing" constant="8" id="Gke-Cm-tLS"/>
+                                        <constraint firstAttribute="bottom" secondItem="CQf-dc-LqX" secondAttribute="bottom" constant="8" id="LTN-3r-wDa"/>
+                                        <constraint firstItem="CQf-dc-LqX" firstAttribute="top" secondItem="1C3-RX-9td" secondAttribute="top" constant="8" id="W5W-ju-2tN"/>
+                                        <constraint firstItem="CQf-dc-LqX" firstAttribute="leading" secondItem="1C3-RX-9td" secondAttribute="leading" constant="8" id="lP1-Q7-fSp"/>
+                                    </constraints>
+                                </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="OAY-lt-Tgz">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

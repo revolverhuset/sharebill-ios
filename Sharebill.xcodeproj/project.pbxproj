@@ -18,6 +18,7 @@
 		CCAB178F1BADB83B00631F5C /* BalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */; };
 		CCAB17911BADB98200631F5C /* parseRational.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17901BADB98200631F5C /* parseRational.swift */; };
 		CCAB17931BAE0C7E00631F5C /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */; };
+		CCAB17971BAEE5FB00631F5C /* frac.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAB17961BAEE5FB00631F5C /* frac.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancesTableViewController.swift; sourceTree = "<group>"; };
 		CCAB17901BADB98200631F5C /* parseRational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseRational.swift; sourceTree = "<group>"; };
 		CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
+		CCAB17941BAEE5BD00631F5C /* frac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = frac.h; sourceTree = "<group>"; };
+		CCAB17951BAEE5FA00631F5C /* Sharebill-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sharebill-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		CCAB17961BAEE5FB00631F5C /* frac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = frac.m; sourceTree = "<group>"; };
 		CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.debug.xcconfig"; sourceTree = "<group>"; };
 		F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharebill.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharebill/Pods-Sharebill.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +97,9 @@
 				CCAB178E1BADB83B00631F5C /* BalancesTableViewController.swift */,
 				CCAB17901BADB98200631F5C /* parseRational.swift */,
 				CCAB17921BAE0C7E00631F5C /* NewEntryViewController.swift */,
+				CCAB17941BAEE5BD00631F5C /* frac.h */,
+				CCAB17961BAEE5FB00631F5C /* frac.m */,
+				CCAB17951BAEE5FA00631F5C /* Sharebill-Bridging-Header.h */,
 			);
 			path = Sharebill;
 			sourceTree = "<group>";
@@ -257,6 +264,7 @@
 				CC481F291BAD90B30011C2F0 /* TransactionTableViewController.swift in Sources */,
 				CCAB17911BADB98200631F5C /* parseRational.swift in Sources */,
 				CC6A85971BAD73B3002CBA3E /* AppDelegate.swift in Sources */,
+				CCAB17971BAEE5FB00631F5C /* frac.m in Sources */,
 				CCAB17931BAE0C7E00631F5C /* NewEntryViewController.swift in Sources */,
 				CCAB178F1BADB83B00631F5C /* BalancesTableViewController.swift in Sources */,
 			);
@@ -370,9 +378,12 @@
 			baseConfigurationReference = CF73E0CBC8511927657D2AC7 /* Pods-Sharebill.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sharebill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharebill-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -381,9 +392,11 @@
 			baseConfigurationReference = F72284FB7E885574735017BF /* Pods-Sharebill.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sharebill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sharebill-Bridging-Header.h";
 			};
 			name = Release;
 		};

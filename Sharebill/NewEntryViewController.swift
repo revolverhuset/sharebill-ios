@@ -8,6 +8,8 @@
 
 import UIKit
 import QuartzCore
+import PromiseKit
+import SwiftyJSON
 
 struct SharebillEntry {
   var credits:[(String, String)] {
@@ -20,6 +22,7 @@ struct SharebillEntry {
       _debitsTotal = nil
     }
   }
+  var entryName:String
   private var _creditsTotal:Double? = nil
   private var _debitsTotal:Double? = nil
   var creditsTotal:Double {
@@ -40,6 +43,38 @@ struct SharebillEntry {
       return _debitsTotal!
     }
   }
+  
+  func serialize() -> [String:AnyObject] {
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+    let timestamp = dateFormatter.stringFromDate(NSDate())
+    
+    NSLog(timestamp)
+    
+    var debits:[String:String] = [:]
+    var credits:[String:String] = [:]
+    
+    for (account, value) in self.debits {
+      debits[account] = toRational(parseRational(value))
+    }
+    for (account, value) in self.credits {
+      credits[account] = toRational(parseRational(value))
+    }
+    
+    return [
+      "_id": NSUUID().UUIDString,
+      "meta": [
+        "description": entryName,
+        "timestamp": timestamp
+      ],
+      "transaction": [
+        "debets": debits,
+        "credits": credits
+      ]
+    ]
+  }
 }
 
 class NewEntryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EntryInputTableViewCellDelegate {
@@ -58,7 +93,7 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
   }
   
-  var entry:SharebillEntry = SharebillEntry(credits: [], debits: [], _creditsTotal: nil, _debitsTotal: nil)
+  var entry:SharebillEntry = SharebillEntry(credits: [], debits: [], entryName: "", _creditsTotal: nil, _debitsTotal: nil)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -79,6 +114,10 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
     } else {
       return entry.credits.count + 1
     }
+  }
+  
+  @IBAction func entryNameDidChange(sender:UITextField!) {
+    entry.entryName = sender.text
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -143,7 +182,30 @@ class NewEntryViewController: UIViewController, UITableViewDataSource, UITableVi
       }
     }
     
-    
+    firstly { () -> Promise<(JSON, NSURLResponse)> in
+      let serializedEntry = self.entry.serialize()
+      let id = serializedEntry["_id"] as! String
+      self.activityIndicator.startAnimating()
+      return Sharebill.inst.put("post/" + id, json: serializedEntry)
+    }.then { (response:JSON, urlResponse:NSURLResponse) -> Void in
+      let httpResponse = urlResponse as! NSHTTPURLResponse
+      if httpResponse.statusCode == 201 {
+        self.tabBarController?.selectedIndex = 1
+      } else {
+        self.displayError(response.stringValue)
+      }
+    }.finally {
+      self.activityIndicator.stopAnimating()
+    }.catch { error in
+      self.displayError(error.description)
+    }
+  }
+  
+  private func displayError(error:String) {
+    let alert = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
+    let action = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default, handler: { action in alert.dismissViewControllerAnimated(true, completion: nil) })
+    alert.addAction(action)
+    self.presentViewController(alert, animated: true, completion: nil)
   }
   
   private func recalculateTotals() {

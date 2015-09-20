@@ -22,9 +22,11 @@ class TransactionListTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
-    
+    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+  }
+  
+  override func viewDidAppear(animated: Bool) {
     firstly { () -> Promise<(JSON, NSURLResponse)> in
       SwiftLoader.show(animated:true)
       return Sharebill.inst.get("recent")

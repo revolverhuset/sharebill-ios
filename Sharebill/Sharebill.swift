@@ -33,8 +33,8 @@ class Sharebill {
     }
   }
   
-  func post(path:String, json:[String:AnyObject]) -> Promise<(JSON, NSURLResponse)> {
-    var request = OMGHTTPURLRQ.POST(endpoint(path), JSON: json)
+  func put(path:String, json:[String:AnyObject]) -> Promise<(JSON, NSURLResponse)> {
+    var request = OMGHTTPURLRQ.PUT(endpoint(path), JSON: json)
     return parseResult(NSURLConnection.promise(request))
   }
   

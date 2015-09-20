@@ -22,7 +22,9 @@ class BalancesTableViewController: UIViewController, UITableViewDataSource, UITa
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+  }
+  
+  override func viewDidAppear(animated: Bool) {
     firstly { () -> Promise<(JSON, NSURLResponse)> in
       SwiftLoader.show(animated:true)
       return Sharebill.inst.get("balances")
